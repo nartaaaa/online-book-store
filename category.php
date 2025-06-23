@@ -1,27 +1,27 @@
 <?php 
 session_start();
 
-# If not category ID is set
+
 if (!isset($_GET['id'])) {
 	header("Location: index.php");
 	exit;
 }
 
-# Get category ID from GET request
+
 $id = $_GET['id'];
 
-# Database Connection File
+
 include "db_conn.php";
 
-# Book helper function
+
 include "php/func-book.php";
 $books = get_books_by_category($conn, $id);
 
-# author helper function
+
 include "php/func-author.php";
 $authors = get_all_author($conn);
 
-# Category helper function
+
 include "php/func-category.php";
 $categories = get_all_categories($conn);
 $current_category = get_category($conn, $id);
@@ -34,10 +34,10 @@ $current_category = get_category($conn, $id);
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?=$current_category['name']?></title>
 
-    <!-- bootstrap 5 CDN-->
+    <
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
-    <!-- bootstrap 5 Js bundle CDN-->
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/style.css">
@@ -145,10 +145,10 @@ $current_category = get_category($conn, $id);
 		<?php } ?>
 
 		<div class="category">
-			<!-- List of categories -->
+			
 			<div class="list-group">
 				<?php if ($categories == 0){
-					// do nothing
+					
 				}else{ ?>
 				<a href="#"
 				   class="list-group-item list-group-item-action active">Category</a>
@@ -160,10 +160,10 @@ $current_category = get_category($conn, $id);
 				<?php } } ?>
 			</div>
 
-			<!-- List of authors -->
+			
 			<div class="list-group mt-5">
 				<?php if ($authors == 0){
-					// do nothing
+					
 				}else{ ?>
 				<a href="#"
 				   class="list-group-item list-group-item-action active">Author</a>

@@ -1,25 +1,23 @@
 <?php 
 session_start();
 
-# If search key is not set or empty
+
 if (!isset($_GET['key']) || empty($_GET['key'])) {
 	header("Location: index.php");
 	exit;
 }
 $key = $_GET['key'];
 
-# Database Connection File
 include "db_conn.php";
 
-# Book helper function
+
 include "php/func-book.php";
 $books = search_books($conn, $key);
 
-# author helper function
+
 include "php/func-author.php";
 $authors = get_all_author($conn);
 
-# Category helper function
 include "php/func-category.php";
 $categories = get_all_categories($conn);
 
@@ -31,10 +29,9 @@ $categories = get_all_categories($conn);
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Book Store</title>
 
-    <!-- bootstrap 5 CDN-->
+    
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
-    <!-- bootstrap 5 Js bundle CDN-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/style.css">

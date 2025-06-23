@@ -1,29 +1,29 @@
 <?php  
 session_start();
 
-# If the admin is logged in
+
 if (isset($_SESSION['user_id']) &&
     isset($_SESSION['user_email'])) {
     
-    # If category ID is not set
+    
 	if (!isset($_GET['id'])) {
-		#Redirect to admin.php page
+		
         header("Location: admin.php");
         exit;
 	}
 
 	$id = $_GET['id'];
 
-	# Database Connection File
+	
 	include "db_conn.php";
 
-    # Category helper function
+    
 	include "php/func-category.php";
     $category = get_category($conn, $id);
     
-    # If the ID is invalid
+    
     if ($category == 0) {
-    	#Redirect to admin.php page
+    	
         header("Location: admin.php");
         exit;
     }
@@ -36,10 +36,10 @@ if (isset($_SESSION['user_id']) &&
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Edit Category</title>
 
-    <!-- bootstrap 5 CDN-->
+    
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
-    <!-- bootstrap 5 Js bundle CDN-->
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
 </head>

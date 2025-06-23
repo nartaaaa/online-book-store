@@ -1,22 +1,22 @@
+
 <?php  
 session_start();
 
-# If the admin is logged in
 if (isset($_SESSION['user_id']) &&
     isset($_SESSION['user_email'])) {
 
-	# Database Connection File
+	
 	include "db_conn.php";
 
-	# Book helper function
+	
 	include "php/func-book.php";
     $books = get_all_books($conn);
 
-    # author helper function
+  
 	include "php/func-author.php";
     $authors = get_all_author($conn);
 
-    # Category helper function
+    
 	include "php/func-category.php";
     $categories = get_all_categories($conn);
 
@@ -29,10 +29,10 @@ if (isset($_SESSION['user_id']) &&
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>ADMIN</title>
 
-    <!-- bootstrap 5 CDN-->
+    
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
-    <!-- bootstrap 5 Js bundle CDN-->
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
 </head>
@@ -67,6 +67,10 @@ if (isset($_SESSION['user_id']) &&
 		        <li class="nav-item">
 		          <a class="nav-link" 
 		             href="logout.php">Logout</a>
+		        </li>
+				<li class="nav-item">
+		          <a class="nav-link" 
+		             href="contact.php">Contact us</a>
 		        </li>
 		      </ul>
 		    </div>
@@ -118,7 +122,7 @@ if (isset($_SESSION['user_id']) &&
         <?php }else {?>
 
 
-        <!-- List of all books -->
+        
 		<h4>All Books</h4>
 		<table class="table table-bordered shadow">
 			<thead>
@@ -200,7 +204,7 @@ if (isset($_SESSION['user_id']) &&
 			  There is no category in the database
 		    </div>
         <?php }else {?>
-	    <!-- List of all categories -->
+	    
 		<h4 class="mt-5">All Categories</h4>
 		<table class="table table-bordered shadow">
 			<thead>
@@ -244,7 +248,7 @@ if (isset($_SESSION['user_id']) &&
 			  There is no author in the database
 		    </div>
         <?php }else {?>
-	    <!-- List of all Authors -->
+	    
 		<h4 class="mt-5">All Authors</h4>
          <table class="table table-bordered shadow">
 			<thead>

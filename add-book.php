@@ -1,18 +1,16 @@
 <?php  
 session_start();
 
-# If the admin is logged in
+
 if (isset($_SESSION['user_id']) &&
     isset($_SESSION['user_email'])) {
 
-	# Database Connection File
 	include "db_conn.php";
 
-    # Category helper function
+    
 	include "php/func-category.php";
     $categories = get_all_categories($conn);
 
-    # author helper function
 	include "php/func-author.php";
     $authors = get_all_author($conn);
 
@@ -40,10 +38,10 @@ if (isset($_SESSION['user_id']) &&
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Add Book</title>
 
-    <!-- bootstrap 5 CDN-->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <!-- bootstrap 5 Js bundle CDN-->
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
 </head>
@@ -133,7 +131,7 @@ if (isset($_SESSION['user_id']) &&
 		    	    </option>
 		    	    <?php 
                     if ($authors == 0) {
-                    	# Do nothing!
+                    	
                     }else{
 		    	    foreach ($authors as $author) { 
 		    	    	if ($author_id == $author['id']) { ?>
@@ -162,7 +160,7 @@ if (isset($_SESSION['user_id']) &&
 		    	    </option>
 		    	    <?php 
                     if ($categories == 0) {
-                    	# Do nothing!
+                    	
                     }else{
 		    	    foreach ($categories as $category) { 
 		    	    	if ($category_id == $category['id']) { ?>
